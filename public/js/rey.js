@@ -1,4 +1,5 @@
-import Personaje from "./personaje";
+/* eslint-disable import/extensions */
+import Personaje from "./personaje.js";
 
 export default class Rey extends Personaje {
   anyosReinado;
