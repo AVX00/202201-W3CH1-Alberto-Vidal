@@ -2,7 +2,7 @@ export default class CreateCard {
   card = document.createElement("div");
   cardbody;
 
-  constructor(imgSrc, personaje) {
+  constructor(personaje) {
     this.card.className = "card character__card";
     this.cardBody = CreateCard.createCardBody(
       personaje,
@@ -10,13 +10,13 @@ export default class CreateCard {
         CreateCard.createList(CreateCard.createOverviewElements(personaje))
       )
     );
-    this.card.append(CreateCard.createImg(imgSrc, personaje), this.cardBody);
+    this.card.append(CreateCard.createImg(personaje), this.cardBody);
   }
 
-  static createImg(imgSrc, personaje) {
+  static createImg(personaje) {
     const img = document.createElement("img");
     img.className = "character__picture card-img-top";
-    img.src = imgSrc;
+    img.src = `img/${personaje.nombre}.jpg`;
     img.alt = `${personaje.nombre} ${personaje.familia}`;
     return img;
   }
