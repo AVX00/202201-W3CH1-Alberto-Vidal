@@ -6,7 +6,9 @@ export default class CreateCard {
     this.card.className = "card character__card";
     this.cardBody = CreateCard.createCardBody(
       personaje,
-      CreateCard.createCharacterInfo(CreateCard.createOverviewList(personaje))
+      CreateCard.createCharacterInfo(
+        CreateCard.createList(CreateCard.createOverviewElements(personaje))
+      )
     );
     this.card.append(CreateCard.createImg(imgSrc, personaje), this.cardBody);
   }
@@ -36,16 +38,25 @@ export default class CreateCard {
     return characterInfo;
   }
 
-  static createOverviewList(personaje) {
+  static createList(listElemnts) {
     const list = document.createElement("ul");
+    list.className = "list-unstyled";
+    listElemnts.forEach((element) => {
+      list.append(element);
+    });
+    return list;
+  }
+
+  static createOverviewElements(personaje) {
+    const listElement = [];
     const edad = document.createElement("li");
     const thumbsli = document.createElement("li");
     const thumbs = document.createElement("i");
-    list.className = "list-unstyled";
+
     edad.innerText = `Edad: ${personaje.edad} años`;
     thumbs.className = "fas fa-thumbs-up";
     thumbsli.append(thumbs);
-    list.append(edad, thumbsli);
-    return list;
+    listElement.push(edad, thumbsli);
+    return listElement;
   }
 }
