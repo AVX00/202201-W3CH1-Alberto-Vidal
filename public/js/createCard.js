@@ -25,31 +25,10 @@ export default class CreateCard {
     return cardBody;
   }
 
-  createCharacterInfo(personaje) {
+  createCharacterInfo(personaje, list) {
     const characterInfo = document.createElement("div");
     characterInfo.className = "character__info";
-  }
-
-  createList(listClass, dataToDisplay) {
-    const list = document.createElement("ul");
-    list.className = listClass;
-    dataToDisplay.forEach((data) => {
-      const element = document.createElement("li");
-      element.append = data;
-      list.append(element);
-    });
-    return list;
-  }
-
-  formatDataList(isShort, personaje) {
-    const data = [];
-
-    if (isShort) {
-      const edad = document.createElement("li");
-      edad.innerText = `Edad: ${personaje.edad} años`;
-      const icon = document.createElement("i");
-      icon.className = "fas fa-thumbs-up";
-      data.push(edad, icon);
-    }
+    characterInfo.append(list);
+    return characterInfo;
   }
 }
