@@ -11,6 +11,7 @@ export default class CreateCard {
       )
     );
     this.card.append(CreateCard.createImg(personaje), this.cardBody);
+    console.log(personaje);
   }
 
   static createImg(personaje) {
@@ -28,6 +29,7 @@ export default class CreateCard {
     characterName.className = "character__name card-title h4";
     characterName.innerText = `${personaje.nombre} ${personaje.familia}`;
     cardBody.append(characterName, characterOverview);
+
     return cardBody;
   }
 
