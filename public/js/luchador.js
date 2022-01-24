@@ -1,4 +1,5 @@
-import Personaje from "./personaje";
+/* eslint-disable import/extensions */
+import Personaje from "./personaje.js";
 
 export default class Luchador extends Personaje {
   arma;
@@ -13,10 +14,10 @@ export default class Luchador extends Personaje {
   ) {
     super(nombreLuchador, familiaLuchador, edadLuchador);
     this.arma = armaLuchador;
-    this.destreza = this.filtraDestreza(valorDestreza);
+    this.destreza = Luchador.filtraDestreza(valorDestreza);
   }
 
-  filtraDestreza(valorDestreza) {
+  static filtraDestreza(valorDestreza) {
     if (valorDestreza < 0) {
       return 0;
     }

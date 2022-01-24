@@ -1,4 +1,6 @@
-import Personaje from "./personaje";
+/* eslint-disable import/extensions */
+import Luchador from "./luchador.js";
+import Personaje from "./personaje.js";
 
 export default class Escudero extends Personaje {
   sirveA;
@@ -12,13 +14,13 @@ export default class Escudero extends Personaje {
     personajeSirve
   ) {
     super(nombreEscudero, familiaEscudero, edadEscudero);
-    this.pelotismo = this.filtrarPelotismo(valorPelotismo);
+    this.pelotismo = Escudero.filtrarPelotismo(valorPelotismo);
     if (personajeSirve instanceof Luchador) {
       this.sirveA = personajeSirve;
     }
   }
 
-  filtrarPelotismo(gradoPelotismo) {
+  static filtrarPelotismo(gradoPelotismo) {
     if (gradoPelotismo < 0) {
       return 0;
     }
