@@ -3,9 +3,13 @@ import CreateCard from "./CreateCard.js";
 
 export default class CreateCardRey extends CreateCard {
   constructor(personaje) {
-    console.log(personaje);
     super(personaje);
-    console.log(personaje);
+    this.cardBody.append(
+      CreateCardRey.filledOverlay(
+        CreateCardRey.createOverlay(),
+        CreateCardRey.createOverlayElements(personaje)
+      )
+    );
   }
 
   static createOverlay() {
@@ -17,7 +21,7 @@ export default class CreateCardRey extends CreateCard {
   static createOverlayElements(personaje) {
     const element = document.createElement("li");
     element.innerText = `Años de reinado: ${personaje.anyosReinado}`;
-    return element;
+    return [element];
   }
 
   static filledOverlay(overlay, overlayElements) {
