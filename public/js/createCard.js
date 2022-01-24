@@ -16,7 +16,7 @@ export default class CreateCard {
   static createImg(personaje) {
     const img = document.createElement("img");
     img.className = "character__picture card-img-top";
-    img.src = `img/${personaje.nombre}.jpg`;
+    img.src = `img/${personaje.nombre.toLowerCase()}.jpg`;
     img.alt = `${personaje.nombre} ${personaje.familia}`;
     return img;
   }
