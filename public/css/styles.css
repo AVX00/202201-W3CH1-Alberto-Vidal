@@ -21,6 +21,10 @@ body {
   object-position: top;
   height: 200px;
 }
+
+.character__picture--dead {
+  transform: rotate(90);
+}
 .character__card {
   position: relative;
   border: none;
