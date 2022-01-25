@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
-import CreateCardRey from "./CardRey.js";
-import personajes from "./Personajes.js";
+import CreateCardRey from "./cardRey.js";
+import personajes from "./personajes.js";
 
 const card = new CreateCardRey(personajes[0]);
 
