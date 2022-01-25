@@ -10,6 +10,9 @@
     "husky": "^7.0.0",
     "jest": "^27.4.7"
   },
+  "jest": {
+    "testEnvironment": "jsdom"
+  },
   "babel": {
     "env": {
       "test": {
@@ -20,7 +23,7 @@
     }
   },
   "scripts": {
-    "test": "echo 'hola'",
+    "test": "jest",
     "prepare": "husky install"
   },
   "dependencies": {

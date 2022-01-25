@@ -1,10 +1,11 @@
-import CreateCardRey from "./CardRey.js";
-import personajes from "./personajes.js";
+import Card from "./components/Card.js";
+import Rey from "./Rey.js";
 
-const card = new CreateCardRey(personajes[0]);
+const personaje = new Rey("haleu", "tuhen", 33, 2);
 
-const cardHolder = document.querySelector(".characters-list");
-const listElement = document.createElement("li");
-listElement.className = "character col";
-listElement.append(card.card);
-cardHolder.append(listElement);
+if (personaje instanceof Rey) {
+  console.log(323);
+}
+const container = document.querySelector(".characters-list");
+
+new Card(container);
