@@ -1,5 +1,5 @@
 /* eslint-disable import/extensions */
-import CreateCard from "./createCard.js";
+import CreateCard from "./Card.js";
 
 export default class CreateCardRey extends CreateCard {
   constructor(personaje) {

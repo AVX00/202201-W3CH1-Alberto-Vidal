@@ -20,5 +20,6 @@ module.exports = {
     "no-debugger": "off",
     "no-console": "off",
     "max-classes-per-file": "off",
+    "import/extensions": "off",
   },
 };

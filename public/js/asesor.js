@@ -1,5 +1,4 @@
-/* eslint-disable import/extensions */
-import Personaje from "./personaje.js";
+import Personaje from "./Personaje.js";
 
 export default class Asesor extends Personaje {
   asesorado;
