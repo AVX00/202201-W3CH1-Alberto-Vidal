@@ -1,10 +1,14 @@
 export default class Component {
   element;
 
-  constructor(parentNode, htmlTag, className, innerHTML) {
+  constructor(parentNode, goAfter, htmlTag, className, innerHTML) {
     this.element = document.createElement(htmlTag);
     this.element.className = className;
     this.element.innerHTML = innerHTML;
-    parentNode.append(this.element);
+    if (goAfter) {
+      parentNode.append(this.element);
+    } else {
+      parentNode.prepend(this.element);
+    }
   }
 }

@@ -5,8 +5,7 @@ export default class Card extends Component {
   constructor(parentNode, personaje) {
     const className = "character col";
     const htmlTag = "li";
-
-    super(parentNode, htmlTag, className);
+    super(parentNode, true, htmlTag, className, "");
 
     new CardBody(this.element, personaje);
   }

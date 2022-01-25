@@ -9,7 +9,15 @@ export default class CardBody extends Component {
   constructor(parentNode, personaje) {
     const htmlTag = "div";
     const className = "card character__card";
-    super(parentNode, htmlTag, className, CardBody.generateInner(personaje));
+
+    super(
+      parentNode,
+      true,
+      htmlTag,
+      className,
+      CardBody.generateInner(personaje)
+    );
+    new Image(this.element, personaje, false);
   }
 
   static generateInner(personaje) {
