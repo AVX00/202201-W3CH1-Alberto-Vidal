@@ -5,7 +5,7 @@ export default class Image extends Component {
     const htmlTag = "img";
     const className = "character__picture card-img-top";
     const alt = `${personaje.nombre} ${personaje.familia}`;
-    const src = `img/${personaje.nombre.toLowerCase}.jpg`;
+    const src = `img/${personaje.nombre.toLowerCase()}.jpg`;
     super(parentNode, htmlTag, className, "");
     this.element.setAttribute("alt", alt);
     this.element.setAttribute("src", src);
