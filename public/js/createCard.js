@@ -1,8 +1,20 @@
 export default class CreateCard {
   card = document.createElement("div");
   cardbody;
+  comunications;
+  talk = (personaje) => {
+    this.comunications.querySelector(".comunications__text").innerText =
+      personaje.comunicar();
+    this.comunications.querySelector(".comunications__picture").src =
+      CreateCard.createImg(personaje, true);
+    this.comunications.classList.add("on");
+    setTimeout(() => {
+      this.comunications.classList.remove("on");
+    }, 2000);
+  };
 
   constructor(personaje) {
+    this.comunications = document.querySelector(".comunications");
     this.card.className = "card character__card";
     this.cardBody = CreateCard.createCardBody(
       personaje,
@@ -10,15 +22,18 @@ export default class CreateCard {
         CreateCard.createList(CreateCard.createOverviewElements(personaje))
       )
     );
-    this.card.append(CreateCard.createImg(personaje), this.cardBody);
+    this.card.append(CreateCard.createImg(personaje, false), this.cardBody);
     console.log(personaje);
   }
 
-  static createImg(personaje) {
+  static createImg(personaje, onlySrc) {
     const img = document.createElement("img");
     img.className = "character__picture card-img-top";
     img.src = `img/${personaje.nombre.toLowerCase()}.jpg`;
     img.alt = `${personaje.nombre} ${personaje.familia}`;
+    if (onlySrc) {
+      return img.src;
+    }
     return img;
   }
 
@@ -60,5 +75,38 @@ export default class CreateCard {
     thumbsli.append(thumbs);
     listElement.push(edad, thumbsli);
     return listElement;
+  }
+
+  createButtons(personaje) {
+    const container = document.createElement("div");
+    container.className = "character__actions";
+    const hablaButton = document.createElement("button");
+    const muereButton = document.createElement("button");
+    hablaButton.className = "character__action btn";
+    hablaButton.addEventListener("click", () => {
+      this.comunications.querySelector(".comunications__text").innerText =
+        personaje.comunicar();
+      this.comunications.querySelector(".comunications__picture").src =
+        CreateCard.createImg(personaje, true);
+      this.comunications.classList.add("on");
+      setTimeout(() => {
+        this.comunications.classList.remove("on");
+      }, 2000);
+    });
+    muereButton.className = "character__action btn";
+    muereButton.addEventListener("click", () => {
+      const thumb = this.card.querySelector(".fas");
+      thumb.classList.remove("fa-thumbs-up");
+      thumb.classList.add("fa-thumbs-down");
+    });
+    hablaButton.innerText = "Habla";
+    muereButton.innerText = "Muere";
+
+    container.append(hablaButton, muereButton);
+    return container;
+  }
+
+  static addListener(element, call, ...parameters) {
+    element.addEventListener("click", call(parameters));
   }
 }

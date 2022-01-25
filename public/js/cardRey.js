@@ -7,7 +7,8 @@ export default class CreateCardRey extends CreateCard {
     this.cardBody.append(
       CreateCardRey.filledOverlay(
         CreateCardRey.createOverlay(),
-        CreateCardRey.createOverlayElements(personaje)
+        CreateCardRey.createOverlayElements(personaje),
+        this.putButtons(personaje)
       )
     );
   }
@@ -24,9 +25,13 @@ export default class CreateCardRey extends CreateCard {
     return [element];
   }
 
-  static filledOverlay(overlay, overlayElements) {
+  static filledOverlay(overlay, overlayElements, buttons) {
     const filledOverlay = overlay;
-    filledOverlay.append(super.createList(overlayElements));
+    filledOverlay.append(super.createList(overlayElements), buttons);
     return filledOverlay;
+  }
+
+  putButtons(personaje) {
+    return super.createButtons(personaje);
   }
 }
