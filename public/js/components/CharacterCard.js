@@ -2,6 +2,7 @@ import Asesor from "../Asesor.js";
 import Escudero from "../Escudero.js";
 import Luchador from "../Luchador.js";
 import Rey from "../Rey.js";
+import Button from "./Button.js";
 import Component from "./Component.js";
 import Image from "./Image.js";
 
