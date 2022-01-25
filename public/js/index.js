@@ -1,11 +1,5 @@
-/* eslint-disable import/extensions */
-import CreateCardRey from "./cardRey.js";
+import Card from "./components/Card.js";
 import personajes from "./personajes.js";
 
-const card = new CreateCardRey(personajes[0]);
-
-const cardHolder = document.querySelector(".characters-list");
-const listElement = document.createElement("li");
-listElement.className = "character col";
-listElement.append(card.card);
-cardHolder.append(listElement);
+new Card(document.querySelector(".characters-list"), personajes[0]);
+new Card(document.querySelector(".characters-list"), personajes[2]);

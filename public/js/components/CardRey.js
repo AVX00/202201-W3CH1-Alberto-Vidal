@@ -1,13 +1,13 @@
 /* eslint-disable import/extensions */
-import CreateCard from "./createCard.js";
+import CreateCard from "./Card.js";
 
-export default class CreateCardRey extends CreateCard {
+export default class CardRey extends CreateCard {
   constructor(personaje) {
     super(personaje);
     this.cardBody.append(
-      CreateCardRey.filledOverlay(
-        CreateCardRey.createOverlay(),
-        CreateCardRey.createOverlayElements(personaje),
+      CardRey.filledOverlay(
+        CardRey.createOverlay(),
+        CardRey.createOverlayElements(personaje),
         this.putButtons(personaje)
       )
     );
